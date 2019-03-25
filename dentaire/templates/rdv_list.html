@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Panel{% endblock %}
+
+{% block content %}
+
+<center>
+
+<h1>Rdv User</h1>
+<table class="table">
+<tr>
+<th>Rdv Date </th>
+<th>Rdv Numero </th>
+<th> Edit </th>
+<th>Delete </th>
+</tr>
+
+    {% for Rdv in object_list %}
+    <tr>
+    <td>{{ Rdv.date }}  </td><td> ({{ Rdv.num_rdv }} ) </td>
+
+    <td>
+
+    <a href="{% url 'rdv_edit' Rdv.id %}" class="btn btn-primary" >edit</a>
+
+
+    </td>
+    <td><a href="{% url 'rdv_delete' Rdv.id %}" class="btn btn-danger" >delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="{% url 'rdv_new' %}" class="btn btn-info" >New</a>
+
+</center>
+
+{% endblock %}
+

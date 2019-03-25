@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Panel{% endblock %}
+
+{% block content %}
+<center>
+<div class="container" class="form-horizontal">
+<form method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ object.id }}" ?<p>
+    <input type="submit" value="Submit" class="btn btn-danger" />
+</form>
+</center>
+{% endblock %}
